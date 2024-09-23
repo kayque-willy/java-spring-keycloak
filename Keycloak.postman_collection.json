@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "dffadaf6-5c5e-4b6e-8438-109b33b37465",
+		"name": "Keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38436061"
+	},
+	"item": [
+		{
+			"name": "Gerar Token",
+			"item": [
+				{
+					"name": "Gerar Token (Keycloak)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "app_keycloak_spring",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user_keycloak",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/realms/keycloak-spring/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"keycloak-spring",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar Token (user)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clienId\": \"app_keycloak_spring\",\n  \"username\": \"user_keycloak\",\n  \"password\": \"user\",\n  \"grantType\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar Token (admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clienId\": \"app_keycloak_spring\",\n  \"username\": \"admin_keycloak\",\n  \"password\": \"admin\",\n  \"grantType\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enviar Mensagem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFMHFBU1FyRjR2c2pOR1ZKQklORUtaTWowdDdabFhtbjdVVGpFVnhJc2tVIn0.eyJleHAiOjE3MjcxMjUwNTUsImlhdCI6MTcyNzEyNDc1NSwianRpIjoiZjU2YmEzZDYtNGYzYS00NTFhLWEwZGUtYTkyZjM1MjY1MTVjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9rZXljbG9hay1zcHJpbmciLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDcwY2I4NTMtYzQ1Ni00MTJlLWFjNzYtMDRjYTg4MzIwOGYzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYXBwX2tleWNsb2FrX3NwcmluZyIsInNpZCI6IjM1NGQwZGU0LWY3ZTAtNGE4Ni1iMDA0LWQ1MDIwNDcwYTFlOCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJBRE1JTiIsImRlZmF1bHQtcm9sZXMta2V5Y2xvYWstc3ByaW5nIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBZG1pbiBLZXljbG9hayIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluX2tleWNsb2FrIiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZmFtaWx5X25hbWUiOiJLZXljbG9hayIsImVtYWlsIjoiYWRtaW5Acm9vdCJ9.o-9dbfbZpUL1RbYxyTGrpEKMn5T8bVeHG0dXyAO0J9pgbBxok87CFI32tq6dMuN6MrjeR1mZCJJ2m9Dm1Z2Yp1VOq4KYeB5d04xTQIvwqyTfWtMKOUtZ7xnY-vEgrVgBQcUUJDxWq8s-M-OqSU2ZIrf5v52Qf3PxXbl4-BwuQhoXAzPA0Eo7v8nhYfOiCjxw4GMf1JptbLtO8wt7uEMpA-SYcE53s47SA1ujYefXYrMY1aM_pckYwZTBC1q0ENV3ODMEC_AIgqGeANo5fwe_eL7QqEcUZRa7TThTHbtsPsggMx0-B18WbEJn8Gv3ivD9UepgedWLTEMO6ekBOND14g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/mensagens/?mensagem=teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"mensagens",
+						""
+					],
+					"query": [
+						{
+							"key": "mensagem",
+							"value": "teste"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Mensagens",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFMHFBU1FyRjR2c2pOR1ZKQklORUtaTWowdDdabFhtbjdVVGpFVnhJc2tVIn0.eyJleHAiOjE3MjcxMjQ4MDQsImlhdCI6MTcyNzEyNDUwNCwianRpIjoiYjFlZjNjMTUtZDYyZi00NWUwLWJjMjgtYzgxNzJhOGIxM2Q1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9rZXljbG9hay1zcHJpbmciLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNTE0MTQ4OTItNmI2MC00ODQ2LTgzNjAtZWYyYmE0NDdlNzA4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYXBwX2tleWNsb2FrX3NwcmluZyIsInNpZCI6IjZiMTk5NjJmLTYyMGItNDE1YS1iYTgwLThkNmZmMzQ2NTlmNyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJVU0VSIiwiZGVmYXVsdC1yb2xlcy1rZXljbG9hay1zcHJpbmciXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IlVzZXIgS2V5Y2xvYWsiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyX2tleWNsb2FrIiwiZ2l2ZW5fbmFtZSI6IlVzZXIiLCJmYW1pbHlfbmFtZSI6IktleWNsb2FrIiwiZW1haWwiOiJ1c2VyQGVtYWlsLmNvbSJ9.WmBo-GujVNZtY9miBYDYJNgvrVWPG_uFZh09SWjV3ICSvEPoOM8f-QWHw0WRBK0Em2MZy-yOPmmSM1OGkPUBYJV0q5Xc_TUyQTD8uGwsZtt1vgTcJGIIt4tOxuceqlCbRznLhUwg3AQlhcFNIaI1r6_iDVBiSsimEzEM44oRSx4vLAdyLky4pQA_0H81EAnp6XIr36sRksMT6xx_mNoyniKQm6j3fp9klrlRhM5wdmoBsyWOWyLpLBmcrWY8BhRm94YXwiusOwCWG7CmgQEkpt0Sm5dGx1HThRxuuQ0AVANKjomPNeqLqA0Cij6An-R0Hl2lXuItSg9Flti8E5ugBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/mensagens/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"mensagens",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
