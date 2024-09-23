@@ -19,10 +19,10 @@ Esse projeto é uma demonstração de um autenticador com o Java Spring Security
  2. Aba **Clientes** -> **Create client** -> **Client ID:** app_keycloak_spring
  3. Aba **Realm roles** -> **Create role** -> **Role Name:** USER, ADMIN
  4. Aba **Users** -> **Create user:**
-	 4.1. **Username:** admin_keycloak, user_keycloak
-	 4.2. **Email:** admin@root, user@email
-	 4.3. **Email verified:** true
- 5. Aba **Users** -> **User details** -> **Role Mapping** -> **Assign Role** -> **Filter by realm roles** -> ADMIN (admin_keycloak), USER (user_keycloak)
+	 **Username:** admin_keycloak, user_keycloak
+	 **Email:** admin@root, user@email
+	 **Email verified:** true
+8. Aba **Users** -> **User details** -> **Role Mapping** -> **Assign Role** -> **Filter by realm roles** -> ADMIN (admin_keycloak), USER (user_keycloak)
 
 ### Endpoint para a geração do Token JWT do Keycloak
 
